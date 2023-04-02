@@ -9,7 +9,7 @@ namespace SistemasDeTarefas.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<List<Usuario>> GetAllUsers()
+        public ActionResult<List<Usuario>> BuscarTodosUsuarios()
         {
 
 
