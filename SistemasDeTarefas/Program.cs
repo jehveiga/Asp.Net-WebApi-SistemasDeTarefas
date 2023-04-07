@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SistemasDeTarefas.Data;
+using SistemasDeTarefas.Interfaces;
+using SistemasDeTarefas.Repositorios;
 
 namespace SistemasDeTarefas
 {
@@ -17,6 +19,9 @@ namespace SistemasDeTarefas
             builder.Services
                     .AddDbContext<SistemaTarefasDbContext>(options => 
                         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Add serviço de injeção de dependências 
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
