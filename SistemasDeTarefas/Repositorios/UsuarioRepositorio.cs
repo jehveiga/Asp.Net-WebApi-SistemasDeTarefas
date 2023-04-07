@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SistemasDeTarefas.Data;
+using SistemasDeTarefas.Interfaces;
 using SistemasDeTarefas.Models;
-using SistemasDeTarefas.Repositorios.Interfaces;
 
 namespace SistemasDeTarefas.Repositorios
 {
