@@ -1,0 +1,8 @@
+Adicionando uma migration 
+exemplo: Add-Migration InitialDB -context SistemaTarefasDbContext -Verbose
+
+Aplicar uma migration
+exemplo: Update-Database -context SistemaTarefasDbContext -Verbose
+
+
+ 
