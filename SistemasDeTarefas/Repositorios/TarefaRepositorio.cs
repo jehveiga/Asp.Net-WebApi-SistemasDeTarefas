@@ -16,12 +16,18 @@ namespace SistemasDeTarefas.Repositorios
 
         public async Task<List<Tarefa>> BuscarTodasTarefas()
         {
-            return await _dbContext.Tarefas.AsNoTracking().ToListAsync();
+            return await _dbContext.Tarefas
+                .AsNoTracking()
+                .Include(t => t.Usuario)
+                .ToListAsync();
         }
 
         public async Task<Tarefa> BuscasPorId(Guid id)
         {
-            var tarefaDataBase = await _dbContext.Tarefas.FindAsync(id);
+            var tarefaDataBase = await _dbContext.Tarefas
+                .Include(t => t.Usuario)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
             if (tarefaDataBase is null)
                 throw new Exception($"Tarefa para o ID: {id} não foi encontrada no banco de dados.");
 
