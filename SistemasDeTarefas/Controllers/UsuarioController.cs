@@ -44,7 +44,7 @@ namespace SistemasDeTarefas.Controllers
 
 
         [HttpPut("{id}")] // padrão REST Personalizando a rota para ser passado o parametro id na rota para atualização do usuário
-        public async Task<ActionResult<Usuario>> AdicionarUsuario([FromBody] Usuario usuario, Guid id)
+        public async Task<ActionResult<Usuario>> AtualizarUsuario([FromBody] Usuario usuario, Guid id)
         {
             usuario.Id = id;
             Usuario usuarioAtualizado = await _usuarioRepositorio.Atualizar(usuario, id);
