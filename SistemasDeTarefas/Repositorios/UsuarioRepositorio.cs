@@ -44,7 +44,7 @@ namespace SistemasDeTarefas.Repositorios
             usuarioDataBase.Nome = usuario.Nome;
             usuarioDataBase.Email = usuario.Email;
 
-            _dbContext.Update(usuarioDataBase); // Atualizando o contexto
+            _dbContext.Usuarios.Update(usuarioDataBase); // Atualizando o contexto
             await _dbContext.SaveChangesAsync(); // Salvando as atualizações do contexto
 
             return usuario;
@@ -56,7 +56,7 @@ namespace SistemasDeTarefas.Repositorios
             if (usuarioDataBase is null)
                 throw new Exception($"Usuário para o ID: {id} não foi encontrado no banco de dados.");
 
-            _dbContext.Remove(usuarioDataBase); // Removendo o usuário do contexto
+            _dbContext.Usuarios.Remove(usuarioDataBase); // Removendo o usuário do contexto
             await _dbContext.SaveChangesAsync(); // Salvando as atualizações do contexto
             return true;
         }
